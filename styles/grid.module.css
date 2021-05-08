@@ -1,0 +1,11 @@
+/*********************************************************************
+ * Homepage CSS module
+ * -----
+ * Copyright (c) Kiruse 2021. All rights reserved.
+ */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

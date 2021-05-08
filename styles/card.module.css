@@ -1,0 +1,25 @@
+/*********************************************************************
+ * Homepage CSS module
+ * -----
+ * Copyright (c) Kiruse 2021. All rights reserved.
+ */
+.container {
+    display: block;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.card h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}

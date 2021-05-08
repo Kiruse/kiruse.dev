@@ -1,0 +1,19 @@
+.titlebar {
+    width: 100%;
+    height: 80px;
+}
+
+.titlebar h1 {
+    display: inline-block;
+    margin: 5px 20px;
+    line-height: 80px;
+    font-size: 2em;
+}
+
+.titlebar h2 {
+    display: inline-block;
+    margin: 5px 10px;
+    line-height: 80px;
+    font-size: 1.2em;
+    font-weight: normal;
+}
