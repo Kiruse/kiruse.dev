@@ -3,7 +3,7 @@
 // -----
 // Copyright (c) Kiruse 2021. All rights reserved.
 import React from 'react'
-import styles from '@styles/grid.module.css'
+import styles from '@/styles/grid.module.css'
 
 export default function Grid({columns, classes, children}) {
     classes = classes ?? [];
