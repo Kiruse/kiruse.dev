@@ -4,13 +4,13 @@
 // Copyright (c) Kiruse 2021. All rights reserved.
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/home.module.css'
+import styles from '@styles/home.module.css'
 
-import Titlebar from '@/components/titlebar'
-import Content from '@/components/content'
-import Footer from '@/components/footer'
-import Grid from '@/components/grid'
-import Card from '@/components/card'
+import Titlebar from '@components/titlebar'
+import Content from '@components/content'
+import Footer from '@components/footer'
+import Grid from '@components/grid'
+import Card from '@components/card'
 
 export default function Home() {
 	const cardAttrs = {

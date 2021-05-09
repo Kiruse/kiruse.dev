@@ -3,9 +3,9 @@
 // -----
 // Copyright (c) Kiruse 2021. All rights reserved.
 import React, {useState} from 'react'
-import styles from '@/styles/card.module.css'
+import styles from '@styles/card.module.css'
 
-import Color from '@/lib/theming'
+import Color from '@lib/theming'
 
 export default function Card({link, newtab, color, pale, textColor, textHoverColor, children}) {
     color = Color.from(color??'#fff');
