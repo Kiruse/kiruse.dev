@@ -5,20 +5,20 @@
 import React, {useState} from 'react'
 import styles from '@styles/card.module.css'
 
-import Color from '@lib/theming'
+import Color from 'color'
 
 export default function Card({link, newtab, color, pale, textColor, textHoverColor, children}) {
-    color = Color.from(color??'#fff');
-    pale  = pale ? Color.from(pale) : color.brighten();
-    textColor      = Color.from(textColor??'black');
-    textHoverColor = Color.from(textHoverColor??'#d83dff');
+    color = Color(color??'#fff');
+    pale  = pale ? Color(pale) : color.lighten(0.2);
+    textColor      = Color(textColor??'black');
+    textHoverColor = Color(textHoverColor??'#d83dff');
     
     const [hover, setHover] = useState(false);
     const attrs = {
         className: styles.container,
         style: {
-            backgroundColor: (hover ? color : pale).toHex(),
-            color: (hover ? textHoverColor : textColor).toHex(),
+            backgroundColor: (hover ? color : pale).hex(),
+            color: (hover ? textHoverColor : textColor).hex(),
         },
         onMouseEnter() {setHover(true)},
         onMouseLeave() {setHover(false)},
