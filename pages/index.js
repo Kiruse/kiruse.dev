@@ -65,6 +65,11 @@ export default function Home() {
                 <section>
                     <h2>Projects Showcase</h2>
                     <Grid classes={[styles.content]} columns={3}>
+                        <Card link="https://github.com/Kirusifix/SceneGraphs.jl" {...cardAttrs}>
+                            <h2>SceneGraphs.jl</h2>
+                            <p>Abstract &amp; generic scene graph library</p>
+                        </Card>
+                        
                         <Card link="https://github.com/Kirusifix/ExtraFun.jl" {...cardAttrs}>
                             <h2>ExtraFun.jl</h2>
                             <p>Complementary Julia functions, types, and macros</p>
