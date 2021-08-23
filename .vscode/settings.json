@@ -1,0 +1,25 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/dist": true,
+        "**/*.html": { "when": "$(basename).pug" }
+    },
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "assets[\\\\/]scripts[\\\\/].*\\.js$",
+                "cmd": "npx babel -d dist --relative ${file} && npx webpack"
+            }
+        ]
+    },
+    "compile-hero.disable-compile-files-on-did-save-code": false,
+    "compile-hero.javascript-output-toggle": false,
+    "compile-hero.javascript-output-directory": "./nope",
+    "compile-hero.typescript-output-toggle": false,
+    "compile-hero.typescript-output-directory": "./nope",
+    "compile-hero.pug-output-directory": "."
+}
