@@ -1,0 +1,6 @@
+######################################################################
+# supported browsers - used by babel for polyfills and such
+defaults
+not ie <= 11 # cus fuck that ancient piece of tech :)
+not dead
+> 1%
