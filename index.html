@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>kiruse.dev</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/assets/styles/dist/home.css">
+    <script src="/assets/scripts/dist/bundle.js"></script>
+  </head>
+  <body data-page="home">
+    <nav class="drawer" id="navbar"><img class="logo" src="/assets/img/logo.png" alt="kirudev logo"><a href="#home">home</a><a href="#about">about</a><a href="#projects">projects</a><a href="#clients">clients</a><a href="#contact">contact</a></nav>
+    <div id="omega">
+      <div class="fullspan" id="home">
+        <div id="jumbotron"><img class="logo" src="/assets/img/logo.svg" alt="logo in jumbotron">
+          <h1>kirudev</h1>
+          <h2>freelance <span>coder</span></h2>
+        </div>
+      </div>
+      <div id="about">
+        <h1>About</h1>
+        <div class="content">
+          <p>
+            Hi! I'm Kiruse, a Germany-based generalist developer for hire. I've been coding since my teen years: it's
+            fun and jogs my noggin. I love working at night because historically, that's when I have my peace and
+            quiet to fully concentrate and get creative.
+          </p>
+          <p>While have I dabbled with many different techs, I have found a particular interest in <span>full stack</span>
+            (both <span>web</span> &amp; <span>mobile</span>), <span>machine learning</span>, <span>blockchain</span>, and
+            <span>game dev</span> - although the latter is more of a hobby.
+          </p>
+          <p>
+             Over the years I have toyed with many different languages, though my primary languages are <span>Python</span>,
+            <span>JavaScript</span>, and <span>Julia</span>. While I'm always open to learning new tech, my usual stack consists
+            of <span>React (Native)</span> or <span>Vue</span>, <span>Node.js</span>, <span>MySQL</span> or <span>SQLite</span>. More recently,
+            I ventured into the lands of <span>Ethereum</span> and <span>IPFS</span>. I'm looking to deepen my expertise with
+            <span>TensorFlow</span>/<span>Keras</span>.
+          </p>
+          <noscript><span>Please note</span> that this website is built upon serverless architecture and is best enjoyed with
+            JavaScript enabled. I promise I'm not even using cookies. I'd be full cypherpunk if I could!
+          </noscript>
+        </div>
+      </div>
+      <div id="projects">
+        <h1>Projects</h1>
+        <p class="content">
+          Most of my projects can be found on my <a href="https://github.com/Kiruse?tab=repositories">GitHub</a>.
+          Most are public and Open Source. Those which are not will be made public eventually, and one may request
+          early access from my own person.
+        </p>
+        <div class="inner">
+          <div class="card">
+            <h2>Voxel Populi Engine <sup><i>WIP</i></sup></h2>
+            <div class="content">
+              <p>Open Source Game Engine written from scratch in Julia on OpenGL 3.3+, GLFW, and FreeType.</p><a href="https://github.com/Kirusifix" target="_blank">visit</a>
+            </div>
+          </div>
+          <div class="card">
+            <h2>PyParFact <sup><i>WIP</i></sup></h2>
+            <div class="content">
+              <p>Untokenized, context-sensitive parser factory to accelerate designing &amp; developing of parsers in Python.</p><a href="https://github.com/Kiruse/PyParFact" target="_blank">visit</a>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Penumbra DEX <sup><i>WIP</i></sup></h2>
+            <div class="content">
+              <p>Ethereum VM-based DeFi protocol for an AMM merging single-asset liquidity pools into an abstract hyperpool.</p>
+              <p><i>To be released soon</i></p>
+            </div>
+          </div>
+          <div class="card">
+            <h2>GenerateProperties.jl</h2>
+            <div class="content">
+              <p>QoL macro library for Julia to simplify virtual properties for ease of use &amp; code clarity.</p><a href="https://github.com/Kiruse/GenerateProperties.jl" target="_blank">visit</a>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Pia.jl <sup><i style="color:#B2FFFF">frozen</i></sup></h2>
+            <div class="content">
+              <p>Peer-to-peer networking component of <i>Voxel Populi Engine</i> with native support for cryptographic identities.</p><a href="https://github.com/Kiruse/Pia.jl" target="_blank">visit</a>
+            </div>
+          </div>
+          <div class="card">
+            <h2>node-stateworks</h2>
+            <div class="content">
+              <p>Stateful objects library for JavaScript.</p><a href="https://github.com/Kiruse/node-stateworks" target="_blank">visit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fullspan" id="clients">
+        <h1>Clients</h1>
+        <div class="inner"><a href="https://kinsys.de/" target="_blank"><img src="/assets/img/clients/kinsys.png" alt="KINSYS GmbH Logo"></a><a href="https://mediprim.de/" target="_blank"><img src="/assets/img/clients/mediprim.png" alt="Mediprim GmbH Logo"></a></div>
+      </div>
+      <div class="fullspan" id="contact">
+        <h1>Contact me</h1>
+        <div class="inner">
+          <div class="card" id="contact-email">
+            <div class="inner">
+              <p>via email at <a href="email:contact@kiruse.dev" title="open email client">contact&commat;kiruse.com</a></p>
+              <form id="contact-form" action="">
+                <p>or via this form:</p>
+                <table>
+                  <tr>
+                    <td>
+                      <label for="contact-form-sender">from:</label>
+                    </td>
+                    <td>
+                      <input id="contact-form-sender" type="email" name="sender" placeholder="your@email.com">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="contact-form-subject">subject:</label>
+                    </td>
+                    <td>
+                      <input id="contact-form-subject" type="text" name="subject">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <label for="contact-form-body">message:</label>
+                      <textarea id="contact-form-body" name="msg" placeholder="write your message here ..."></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button id="contact-form-submit">send</button>
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+          <div class="card" id="contact-ids">
+            <div class="inner">
+              <table>
+                <tr>
+                  <td>or on <span>Discord</span>:</td>
+                  <td>Kiruse#6969</td>
+                </tr>
+                <tr>
+                  <td>or on <span>Skype</span>:</td>
+                  <td>derija93</td>
+                </tr>
+                <tr>
+                  <td>or on <span>WhatsApp</span>:</td>
+                  <td><i>upon inquiry</i></td>
+                </tr>
+              </table>
+              <p>or on <a href="https://t.me/joinchat/zZgmBOtc5mMzM2Zi" title="join telegram channel" target="_blank">Telegram</a></p>
+              <div class="qrcode" data-url="https://t.me/joinchat/zZgmBOtc5mMzM2Zi" aria-hidden>
+                <noscript><img src="https://t.me/joinchat/zZgmBOtc5mMzM2Zi" alt="telegram invite QR code"></noscript>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <div id="copyright">Copyright &copy; 2021 Kiruse, Germany. <a href="/license.html" title="view license">Website licensed under GNU GPL 3.0.</a></div>
+      </div>
+    </div>
+    <ul id="freelance-jobs" aria-hidden style="display:none">
+      <li>full stack dev</li>
+      <li>mobile dev</li>
+      <li>ux designer</li>
+      <li>data miner</li>
+      <li>data scientist</li>
+      <li>smart contract dev</li>
+      <li>neural network architect</li>
+    </ul>
+  </body>
+</html>

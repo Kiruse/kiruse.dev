@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="48" height="48" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="grid-sm" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <path d="M0 0L48 0L48 48L0 48L0 0Z" id="bg" fill="#0D0513" fill-rule="evenodd" stroke="none" />
+    <path d="M1 48L1 0" transform="translate(-1 0)" id="line-v" fill="none" fill-rule="evenodd" stroke="#C96949" stroke-width="1" stroke-linecap="square" />
+    <path d="M0 1L48 1" transform="translate(-0 -1)" id="line-h" fill="none" fill-rule="evenodd" stroke="#C96949" stroke-width="1" stroke-linecap="square" />
+  </g>
+</svg>

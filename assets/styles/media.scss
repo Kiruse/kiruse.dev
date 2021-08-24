@@ -1,0 +1,33 @@
+//////////////////////////////////////////////////////////////////////
+// Mixins & constants relating to media selection
+// -----
+// Copyright (c) Kiruse 2021. Licensed under GPL-3.0
+$desktop-width: 1000px;
+$tablet-width:  650px;
+
+@mixin media-desktop {
+    @media screen and (min-width: $desktop-width) {
+        @content
+    }
+}
+@mixin media-tablet {
+    @media screen and (min-width: $tablet-width) and (max-width: $desktop-width) {
+        @content
+    }
+}
+@mixin media-phone {
+    @media screen and (max-width: $tablet-width - 1px) {
+        @content
+    }
+}
+
+@mixin media-medium {
+    @media screen and (min-width: $tablet-width) {
+        @content
+    }
+}
+@mixin media-mobile {
+    @media screen and (max-width: $desktop-width - 1px) {
+        @content
+    }
+}

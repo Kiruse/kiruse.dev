@@ -1,0 +1,136 @@
+doctype html
+html
+  head
+    meta(charset='utf8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title kiruse.dev
+    link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
+    link(rel='stylesheet' href='/assets/styles/dist/home.css')
+    script(src='/assets/scripts/dist/bundle.js')
+  body(data-page='home')
+    nav#navbar.drawer
+      img.logo(src='/assets/img/logo.png' alt='kirudev logo')
+      a(href='#home') home
+      a(href='#about') about
+      a(href='#projects') projects
+      a(href='#clients') clients
+      a(href='#contact') contact
+    #omega
+      #home.fullspan
+        #jumbotron
+          img.logo(src='/assets/img/logo.svg' alt='logo in jumbotron')
+          h1 kirudev
+          h2 freelance <span>coder</span>
+      #about
+        h1 About
+        .content
+          p
+            | Hi! I'm Kiruse, a Germany-based generalist developer for hire. I've been coding since my teen years: it's
+            | fun and jogs my noggin. I love working at night because historically, that's when I have my peace and
+            | quiet to fully concentrate and get creative.
+          p
+            | While have I dabbled with many different techs, I have found a particular interest in #[span full stack]
+            | (both #[span web] &amp; #[span mobile]), #[span machine learning], #[span blockchain], and
+            | #[span game dev] - although the latter is more of a hobby.
+          p 
+            | Over the years I have toyed with many different languages, though my primary languages are #[span Python],
+            | #[span JavaScript], and #[span Julia]. While I'm always open to learning new tech, my usual stack consists
+            | of #[span React (Native)] or #[span Vue], #[span Node.js], #[span MySQL] or #[span SQLite]. More recently,
+            | I ventured into the lands of #[span Ethereum] and #[span IPFS]. I'm looking to deepen my expertise with
+            | #[span TensorFlow]/#[span Keras].
+          noscript
+            | #[span Please note] that this website is built upon serverless architecture and is best enjoyed with
+            | JavaScript enabled. I promise I'm not even using cookies. I'd be full cypherpunk if I could!
+      #projects
+        h1 Projects
+        p.content
+          | Most of my projects can be found on my <a href="https://github.com/Kiruse?tab=repositories">GitHub</a>.
+          | Most are public and Open Source. Those which are not will be made public eventually, and one may request
+          | early access from my own person.
+        .inner
+          .card
+            h2 Voxel Populi Engine #[sup: i WIP]
+            .content
+              p Open Source Game Engine written from scratch in Julia on OpenGL 3.3+, GLFW, and FreeType.
+              a(href='https://github.com/Kirusifix' target='_blank') visit
+          .card
+            h2 PyParFact #[sup: i WIP]
+            .content
+              p Untokenized, context-sensitive parser factory to accelerate designing &amp; developing of parsers in Python.
+              a(href='https://github.com/Kiruse/PyParFact' target='_blank') visit
+          .card
+            h2 Penumbra DEX #[sup: i WIP]
+            .content
+              p Ethereum VM-based DeFi protocol for an AMM merging single-asset liquidity pools into an abstract hyperpool.
+              p: i To be released soon
+          .card
+            h2 GenerateProperties.jl
+            .content
+              p QoL macro library for Julia to simplify virtual properties for ease of use &amp; code clarity.
+              a(href='https://github.com/Kiruse/GenerateProperties.jl' target='_blank') visit
+          .card
+            h2 Pia.jl #[sup: i(style='color:#B2FFFF') frozen]
+            .content
+              p Peer-to-peer networking component of #[i Voxel Populi Engine] with native support for cryptographic identities.
+              a(href='https://github.com/Kiruse/Pia.jl' target='_blank') visit
+          .card
+            h2 node-stateworks
+            .content
+              p Stateful objects library for JavaScript.
+              a(href='https://github.com/Kiruse/node-stateworks' target='_blank') visit
+      #clients.fullspan
+        h1 Clients
+        .inner
+          a(href='https://kinsys.de/' target='_blank')
+            img(src='/assets/img/clients/kinsys.png' alt='KINSYS GmbH Logo')
+          a(href='https://mediprim.de/' target='_blank')
+            img(src='/assets/img/clients/mediprim.png' alt='Mediprim GmbH Logo')
+      #contact.fullspan
+        h1 Contact me
+        .inner
+          #contact-email.card: .inner
+            p via email at 
+              a(href='email:contact@kiruse.dev' title='open email client') contact&commat;kiruse.com
+            form#contact-form(action='')
+              p or via this form:
+              table
+                tr
+                  td: label(for='contact-form-sender') from:
+                  td: input#contact-form-sender(type='email' name='sender' placeholder='your@email.com')
+                tr
+                  td: label(for='contact-form-subject') subject:
+                  td: input#contact-form-subject(type='text' name='subject')
+                tr
+                  td(colspan=2)
+                    label(for='contact-form-body') message:
+                    textarea#contact-form-body(name='msg' placeholder='write your message here ...')
+                tr
+                  td(colspan=2)
+                    button#contact-form-submit send
+          #contact-ids.card: .inner
+            table
+              tr
+                td or on #[span Discord]:
+                td Kiruse#6969
+              tr
+                td or on #[span Skype]:
+                td derija93
+              tr
+                td or on #[span WhatsApp]:
+                td: i upon inquiry
+            
+            - var qrUrl = 'https://t.me/joinchat/zZgmBOtc5mMzM2Zi'
+            p or on #[a(href=qrUrl title='join telegram channel' target='_blank') Telegram]
+            .qrcode(data-url=qrUrl aria-hidden)
+              noscript: img(src=qrUrl alt='telegram invite QR code')
+      #footer
+        #copyright Copyright &copy; 2021 Kiruse, Germany. #[a(href='/license.html' title='view license') Website licensed under GNU GPL 3.0.]
+    
+    ul#freelance-jobs(aria-hidden style='display:none')
+      li full stack dev
+      li mobile dev
+      li ux designer
+      li data miner
+      li data scientist
+      li smart contract dev
+      li neural network architect

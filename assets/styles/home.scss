@@ -1,0 +1,401 @@
+//////////////////////////////////////////////////////////////////////
+// homepage styles
+// -----
+// Copyright (c) Kiruse 2021. Licensed under GPL-3.0
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import "colors.scss";
+@import "media.scss";
+
+$navbar-height: 60px;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: Urbanist, sans-serif;
+  font-weight: 300;
+  font-size: 1.1em;
+}
+
+#omega {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 240px;
+  
+  @include media-mobile() {
+    width: 100vw;
+    height: 100vh;
+  }
+  @include media-desktop() {
+    width: 100%;
+    margin-top: $navbar-height;
+  }
+  
+  > div {
+    margin-bottom: 100px;
+    @include media-mobile()  {width: 100%}
+    @include media-desktop() {width: 1000px}
+    
+    > h1 {
+      text-align: center;
+      font-weight: 300;
+      font-variant: small-caps;
+      font-size: 2.6em;
+    }
+  }
+}
+
+#navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  @include media-mobile()  {bottom: 0}
+  @include media-desktop() {top: 0}
+  z-index: 999;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: $navbar-height;
+  background: $color-base-dark;
+  color: white;
+  padding: 0 20px;
+  
+  .logo {
+    @include media-mobile() {display: none;}
+    height: 60%;
+    margin-right: 20px;
+  }
+  
+  a, a:link, a:active, a:visited {
+    flex: 1;
+    font-family: sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a.down {
+    background: rgba(255, 255, 255, 10%);
+  }
+}
+
+#omega > #home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(/assets/img/jumbotron.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  
+  @include media-mobile()  {height: 100%}
+  @include media-desktop() {height: 600px}
+}
+
+#jumbotron {
+  position: relative;
+  @include media-mobile()  {width: 100%;}
+  @include media-desktop() {width: 1000px;}
+  height: 100%;
+  
+  @include media-mobile() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1, h2 {
+    display: block;
+  }
+  h2 span {
+    display: inline-block;
+  }
+}
+
+body[data-page=home] #jumbotron {
+  h1 {
+    font-size: 4rem;
+    font-style: italic;
+    
+    @include media-desktop() {
+      position: absolute;
+      top: 100px;
+      left: 60px;
+    }
+  }
+  h2 {
+    font-size: 1.4rem;
+    color: $color-base-vibrant;
+    
+    @include media-desktop() {
+      position: absolute;
+      top: 170px;
+      left: 220px;
+    }
+    @include media-mobile() {
+      margin: 20px 0 40px;
+    }
+    
+    span {
+      position: relative;
+      margin: 0 10px;
+      color: $color-highlight;
+      font-weight: 100;
+    }
+  }
+  
+  .logo {
+    @include media-mobile() {
+      margin-top: 40px;
+      width: 50%;
+      max-width: 190px;
+    }
+    @include media-desktop() {
+      position: absolute;
+      top: 57px;
+      left: 10px;
+      width: 256px;
+    }
+  }
+}
+
+#omega > #about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
+  @include media-medium() {background-image: linear-gradient(rgba(0, 0, 0, 60%), rgba(0, 0, 0, 60%)), url('/assets/img/grid-lg.svg')}
+  @include media-phone()  {background-image: linear-gradient(rgba(0, 0, 0, 60%), rgba(0, 0, 0, 60%)), url('/assets/img/grid-sm.svg')}
+  background-position: 10pt;
+}
+
+#omega > #projects {
+  > .inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    
+    > .card {
+      @include media-desktop() {width: 30%}
+      @include media-tablet()  {width: 47.5%}
+      @include media-phone()   {width: 100%}
+      margin-bottom: 20pt;
+      
+      h2 {
+        display: block;
+        font-weight: 100;
+        background-color: darken($color-base-dark, 10%);
+        padding: 4pt;
+        padding-bottom: 10pt;
+        margin: 0;
+        border-radius: 4pt 4pt 0 0;
+      }
+      
+      > .content {
+        display: block;
+        border-radius: 0 0 4pt 4pt;
+        background-color: $color-base-dark;
+        padding: 4pt;
+        
+        p {
+          margin: 0;
+          margin-bottom: .5em;
+        }
+        > a {
+          display: block;
+          text-align: right;
+          padding-right: 10pt;
+          
+          &::before {
+            content: '→ ';
+          }
+        }
+      }
+    }
+  }
+}
+
+#omega > #clients {
+  background: #b9b9b9;
+  padding-bottom: 60pt;
+  margin: 0;
+  
+  h1 {
+    margin-bottom: 10pt;
+  }
+  
+  .inner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10pt;
+    @include media-desktop() {gap: 30pt}
+  }
+}
+
+#omega > #contact {
+  background: #150b1b;
+  margin: 0;
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  > .inner {
+    display: flex;
+    @include media-phone()  {flex-direction: column}
+    @include media-medium() {flex-direction: row}
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1em;
+    }
+    
+    #contact-email {
+      form {
+        display: none;
+      }
+      table {
+        border: none;
+      }
+      table td {
+        padding: 4px;
+      }
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        height: 10em;
+      }
+    }
+    
+    #contact-ids {
+      .inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      table {
+        border: none;
+      }
+      table td {
+        padding: 4px;
+      }
+    }
+    
+    .card {
+      padding: 4pt;
+    }
+  }
+}
+
+#omega > .fullspan {
+  align-self: stretch;
+  width: auto;
+  padding: 10pt;
+}
+
+#omega > * > .content {
+  padding: 10px;
+  @include media-desktop() {width: 1000px}
+}
+
+.qrcode canvas {
+  display: none;
+}
+
+#omega > #footer {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 0;
+  @include media-mobile()  {padding: 10px}
+  @include media-desktop() {padding: 30px}
+  
+  background: $color-base-darkest;
+  
+  #copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  
+  .inner {
+    display: flex;
+    @include media-mobile() {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    @include media-desktop() {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #C96949;
+}
+
+span {
+  color: $color-highlight;
+}
+
+a, a:link, a:visited, a:active {
+  color: $color-highlight;
+  text-decoration: underline;
+  font-style: italic;
+  font-weight: 100;
+}
+a:hover {
+  color: lighten($color-highlight, 10%);
+}
+
+input, textarea {
+  display: block;
+  border: none;
+  border-radius: 2px;
+  font: inherit;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2pt 1pt $color-highlight;
+  }
+}
+button {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: $color-base-vibrant;
+  font: inherit;
+  font-style: italic;
+  border-radius: 2px;
+  border: none;
+  color: white;
+}
+
+#freelance-jobs {
+  display: none;
+}
