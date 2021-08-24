@@ -4,7 +4,7 @@
         {
             "label": "webpack",
             "type": "shell",
-            "command": "npx webpack",
+            "command": "npx babel -d dist --relative --extensions '.js,.ts' assets/scripts; npx webpack",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
