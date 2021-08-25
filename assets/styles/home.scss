@@ -191,9 +191,13 @@ body[data-page=home] #jumbotron {
   padding: 60pt 0 0 0;
   margin: 0;
   
+  > .content {
+    padding-bottom: 40pt;
+  }
+  
   > .project {
     align-self: stretch;
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-position-x: center;
     
     > .gradient {
@@ -204,9 +208,14 @@ body[data-page=home] #jumbotron {
       > .inner {
         display: flex;
         flex-direction: column;
-        padding: 30pt 0;
-        @include media-desktop() {width: 1000px}
-        @include media-mobile()  {width: 100%}
+        @include media-desktop() {
+          width: 1000px;
+          padding: 60pt 0;
+        }
+        @include media-mobile() {
+          width: 100%;
+          padding: 30pt 0;
+        }
         
         > .content {
           @include media-desktop() {width: 600px}

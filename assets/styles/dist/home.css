@@ -232,9 +232,12 @@ body[data-page=home] #jumbotron h2 span {
   padding: 60pt 0 0 0;
   margin: 0;
 }
+#omega > #projects > .content {
+  padding-bottom: 40pt;
+}
 #omega > #projects > .project {
   align-self: stretch;
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-position-x: center;
 }
 #omega > #projects > .project > .gradient {
@@ -245,16 +248,17 @@ body[data-page=home] #jumbotron h2 span {
 #omega > #projects > .project > .gradient > .inner {
   display: flex;
   flex-direction: column;
-  padding: 30pt 0;
 }
 @media screen and (min-width: 1000px) {
   #omega > #projects > .project > .gradient > .inner {
     width: 1000px;
+    padding: 60pt 0;
   }
 }
 @media screen and (max-width: 999px) {
   #omega > #projects > .project > .gradient > .inner {
     width: 100%;
+    padding: 30pt 0;
   }
 }
 @media screen and (min-width: 1000px) {
