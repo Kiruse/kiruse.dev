@@ -7,7 +7,16 @@ html, body {
   color: white;
   font-family: Urbanist, sans-serif;
   font-weight: 300;
-  font-size: 1.1em;
+}
+@media screen and (min-width: 650px) {
+  html, body {
+    font-size: 1.1em;
+  }
+}
+@media screen and (max-width: 649px) {
+  html, body {
+    text-align: justify;
+  }
 }
 
 #omega {
@@ -19,7 +28,7 @@ html, body {
 @media screen and (max-width: 999px) {
   #omega {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -201,6 +210,7 @@ body[data-page=home] #jumbotron h2 span {
   align-items: center;
   width: 100%;
   padding: 40px 0;
+  margin: 0;
   background-position: 10pt;
 }
 @media screen and (min-width: 650px) {
@@ -214,57 +224,102 @@ body[data-page=home] #jumbotron h2 span {
   }
 }
 
-#omega > #projects > .inner {
+#omega > #projects {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  padding: 60pt 0 0 0;
+  margin: 0;
 }
-#omega > #projects > .inner > .card {
-  margin-bottom: 20pt;
+#omega > #projects > .project {
+  align-self: stretch;
+  background-repeat: none;
+  background-position-x: center;
+}
+#omega > #projects > .project > .gradient {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#omega > #projects > .project > .gradient > .inner {
+  display: flex;
+  flex-direction: column;
+  padding: 30pt 0;
 }
 @media screen and (min-width: 1000px) {
-  #omega > #projects > .inner > .card {
-    width: 30%;
+  #omega > #projects > .project > .gradient > .inner {
+    width: 1000px;
   }
 }
-@media screen and (min-width: 650px) and (max-width: 1000px) {
-  #omega > #projects > .inner > .card {
-    width: 47.5%;
-  }
-}
-@media screen and (max-width: 649px) {
-  #omega > #projects > .inner > .card {
+@media screen and (max-width: 999px) {
+  #omega > #projects > .project > .gradient > .inner {
     width: 100%;
   }
 }
-#omega > #projects > .inner > .card h2 {
+@media screen and (min-width: 1000px) {
+  #omega > #projects > .project > .gradient > .inner > .content {
+    width: 600px;
+  }
+}
+@media screen and (max-width: 999px) {
+  #omega > #projects > .project > .gradient > .inner > .content {
+    padding: 4pt 10pt;
+  }
+}
+#omega > #projects > .project > .gradient > .inner > .content h2 {
+  font-style: italic;
+}
+@media screen and (min-width: 650px) {
+  #omega > #projects > .project > .gradient > .inner > .content h2 {
+    padding: 0 60pt;
+  }
+}
+@media screen and (max-width: 649px) {
+  #omega > #projects > .project > .gradient > .inner > .content h2 {
+    text-align: center;
+  }
+}
+#omega > #projects > .project > .gradient > .inner > .content a.projref {
   display: block;
-  font-weight: 100;
-  background-color: #1a0827;
-  padding: 4pt;
-  padding-bottom: 10pt;
-  margin: 0;
-  border-radius: 4pt 4pt 0 0;
+  padding: 4pt 30pt;
 }
-#omega > #projects > .inner > .card > .content {
-  display: block;
-  border-radius: 0 0 4pt 4pt;
-  background-color: #371052;
-  padding: 4pt;
-}
-#omega > #projects > .inner > .card > .content p {
-  margin: 0;
-  margin-bottom: 0.5em;
-}
-#omega > #projects > .inner > .card > .content > a {
-  display: block;
-  text-align: right;
-  padding-right: 10pt;
-}
-#omega > #projects > .inner > .card > .content > a::before {
+#omega > #projects > .project > .gradient > .inner > .content a.projref::before {
   content: "→ ";
+}
+#omega > #projects > .project .gradient {
+  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.2));
+}
+@media screen and (min-width: 650px) {
+  #omega > #projects > .project:nth-child(odd) > .gradient > .inner {
+    align-items: flex-end;
+  }
+  #omega > #projects > .project:nth-child(odd) > .gradient > .inner > .content {
+    text-align: right;
+  }
+  #omega > #projects > .project:nth-child(odd) .gradient {
+    background: linear-gradient(to left, black, rgba(0, 0, 0, 0.2));
+  }
+}
+#omega > #projects #project-kirudev {
+  background-image: url("/assets/img/projects/kirudev.png");
+}
+#omega > #projects #project-penumbra {
+  background-image: url("/assets/img/projects/penumbra.png");
+  background-size: cover;
+}
+#omega > #projects #project-parfact {
+  background-image: url("/assets/img/projects/parfact.png");
+  background-size: cover;
+}
+#omega > #projects #project-vpe {
+  background-color: #461b5a;
+  background-image: url("/assets/img/projects/vpe.png");
+}
+#omega > #projects #project-pia {
+  background-color: #4b97b4;
+  background-image: url("/assets/img/projects/pia.png");
+  background-size: cover;
 }
 
 #omega > #clients {

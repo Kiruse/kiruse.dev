@@ -17,7 +17,7 @@
           <h2>freelance <span>coder</span></h2>
         </div>
       </div>
-      <div id="about">
+      <div class="fullspan" id="about">
         <h1>About</h1>
         <div class="content">
           <p>
@@ -41,49 +41,118 @@
           </noscript>
         </div>
       </div>
-      <div id="projects">
+      <div class="fullspan" id="projects">
         <h1>Projects</h1>
         <p class="content">
           Most of my projects can be found on my <a href="https://github.com/Kiruse?tab=repositories">GitHub</a>.
           Most are public and Open Source. Those which are not will be made public eventually, and one may request
           early access from my own person.
         </p>
-        <div class="inner">
-          <div class="card">
-            <h2>Voxel Populi Engine <sup><i>WIP</i></sup></h2>
-            <div class="content">
-              <p>Open Source Game Engine written from scratch in Julia on OpenGL 3.3+, GLFW, and FreeType.</p><a href="https://github.com/Kirusifix" target="_blank">visit</a>
+        <div class="project" id="project-kirudev">
+          <div class="gradient">
+            <div class="inner">
+              <div class="content">
+                <h2>kirudev</h2>
+                <p><i>This Website</i> is static &amp; serverless. It uses various different technologies for development efficiency,
+                  ranging from <a href="https://babeljs.io" target="_blank">Babel</a> &amp; <a href="https://webpack.js.org" target="_blank">Webpack</a>
+                  over <a href="https://sass-lang.com" target="_blank">SCSS</a> and <a href="https://pugjs.org" target="_blank">Pug</a>
+                  to <a href="https://animejs.com" target="_blank">anime.js</a>.
+                </p>
+                <p>For the most part, it is built from scratch without such frameworks as <a href="https://getbootstrap.com" target="_blank">bootstrap</a>,
+                  <a href="https://tailwindcss.com" target="_blank">tailwind</a>, or <a href="https://jquery.org" target="_blank">jQuery</a>.
+                </p>
+                <p>While the static content is hosted on <a href="https://vercel.com" target="_blank">Vercel</a>, the
+                  <i>serverless functions</i> are powered by <a href="https://firebase.google.com" target="_blank">Google Firebase</a>.
+                </p><a class="projref" href="https://github.com/Kiruse/kiruse.dev" target="_blank">github repo</a>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <h2>PyParFact <sup><i>WIP</i></sup></h2>
-            <div class="content">
-              <p>Untokenized, context-sensitive parser factory to accelerate designing &amp; developing of parsers in Python.</p><a href="https://github.com/Kiruse/PyParFact" target="_blank">visit</a>
+        </div>
+        <div class="project" id="project-penumbra">
+          <div class="gradient">
+            <div class="inner">
+              <div class="content">
+                <h2>Penumbra DEX <sup><i>WIP</i></sup></h2>
+                <p><i>Penumbra</i> is a <span>DeFi</span> protocol, a collection of <span>Solidity</span> smart contracts resembling an
+                  <span>Automated Market Maker</span> running on the <a href="https://polygon.technology" target="_blank">Polygon Network</a>.
+                </p>
+                <p><i>Penumbra</i> merges single-asset liquidity pools into the abstract <span>Hyperpool</span>: rather than pairs
+                  of specific fungible tokens, every type of asset can be paired with another, effectively
+                  <i>maximizing liquidity depth</i> across all assets.
+                </p>
+                <p>Simultaneously, <i>liquidity providers</i> can stake a single token, reducing hassle and improving capital
+                  efficiency. <i>LPs</i> enjoy a portion of trading fees levied on any trade on the platform involving their
+                  staked assets.
+                </p>
+                <p>The effects of the <i>Hyperpool</i> on returns are yet to be observed.</p><a class="projref" href="https://penumbra.network" target="_blank">dapp (soon)</a><a class="projref" href="https://github.com/Kiruse/PenumbraDEX" target="_blank">github repo (soon public)</a>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <h2>Penumbra DEX <sup><i>WIP</i></sup></h2>
-            <div class="content">
-              <p>Ethereum VM-based DeFi protocol for an AMM merging single-asset liquidity pools into an abstract hyperpool.</p>
-              <p><i>To be released soon</i></p>
+        </div>
+        <div class="project" id="project-parfact">
+          <div class="gradient">
+            <div class="inner">
+              <div class="content">
+                <h2>PyParFact <sup><i>WIP</i></sup></h2>
+                <p><i>ParFact</i> is a <span>Python</span> library exposing an <i>API</i> to build <i>untokenized</i> and <i>contextual</i>
+                  formal language text parsers. <i>ParFact</i> parsers skip tokenization and build <i>Abstract Syntax Trees</i>
+                  directly.
+                </p>
+                <p><i>ParFact</i> is still an early <i>Work in Progress</i>. The inspiration for the project sprouted from a
+                  client project which saw me mine non-uniform textual data from
+                  <a href="https://wiktionary.org" target="_blank">Wiktionary</a>. The <i>WikiCode</i> parser library I employed
+                  for the task was too generic and even a little buggy. I'd been meaning to develop such a parser generator
+                  before already, so I took this opportunity to start a side-side project.
+                </p>
+                <p>Once complete, <i>ParFact</i> will excel at creating more natural programming languages, or parsing
+                  non-uniform data sources with plentiful special cases, such as <i>WikiCode</i> found on <i>Wiktionary</i>.
+                </p>
+                <p><i>ParFact</i> achieves its functionality through <i>Deterministic Conversion</i> - the process of converting
+                  a <i>Non-Deterministic Finite Automaton</i> into a <i>determinstic</i> one. A custom grammar notation allows
+                  it to understand interdependencies between rules.
+                </p><a class="projref" href="https://github.com/Kiruse/PyParFact" target="_blank">github repo</a>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <h2>GenerateProperties.jl</h2>
-            <div class="content">
-              <p>QoL macro library for Julia to simplify virtual properties for ease of use &amp; code clarity.</p><a href="https://github.com/Kiruse/GenerateProperties.jl" target="_blank">visit</a>
+        </div>
+        <div class="project" id="project-vpe">
+          <div class="gradient">
+            <div class="inner">
+              <div class="content">
+                <h2>Voxel Populi Engine <sup><i>WIP</i></sup></h2>
+                <p>A very early <i>Work in Progress</i>, <i>Voxel Populi Engine</i> is an <i>Open Source</i> collection of Julia
+                  libraries composing my <span>custom game engine</span> developed from scratch, built atop <span>OpenGL 3.3+</span>,
+                  <span>GLFW</span>, and <span>TrueType</span>.
+                </p>
+                <p>
+                  As it is currently a long-term hobby project, unfortunately, the engine is not advanced enough for any
+                  visual demonstration. I am also in the process of a massive refactoring, which means parts of the existing
+                  codebase are currently private.
+                </p>
+                <p>With this game engine, I wish to explore applications of <span>machine learning</span> in game development &amp;
+                  design. Specifically, I see massive potential for <span>procedural content generation</span>,
+                  <span>adaptive difficulty</span>, <span>XR</span>, and <span>animation tuning</span> - though there are endlessly more
+                  possibilities.
+                </p><a class="projref" href="https://github.com/Kirusifix" target="_blank">github repos</a>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <h2>Pia.jl <sup><i style="color:#B2FFFF">frozen</i></sup></h2>
-            <div class="content">
-              <p>Peer-to-peer networking component of <i>Voxel Populi Engine</i> with native support for cryptographic identities.</p><a href="https://github.com/Kiruse/Pia.jl" target="_blank">visit</a>
-            </div>
-          </div>
-          <div class="card">
-            <h2>node-stateworks</h2>
-            <div class="content">
-              <p>Stateful objects library for JavaScript.</p><a href="https://github.com/Kiruse/node-stateworks" target="_blank">visit</a>
+        </div>
+        <div class="project" id="project-pia">
+          <div class="gradient">
+            <div class="inner">
+              <div class="content">
+                <h2>Pia.jl <sup><i style="color:#B2FFFF">frozen</i></sup></h2>
+                <p><i>Pia</i> is the <span>peer-to-peer networking</span> component of <span>VPE</span> above. It is designed to allow
+                  developers to establish an "internet of peers" - whether it is for gaming, distributed computing, or
+                  decentralized networks. As a crypto enthusiast, it has built-in support for <span>crypto-identities</span>
+                  and <span>cryptocurrencies</span> - albeit fully optional.
+                </p>
+                <p>As <i>VPE</i> is far from its need for netcode still, <i>Pia</i> is currently merely a <i>proof of concept</i>,
+                  albeit an incomplete one.
+                </p><small><span>Disclaimer:</span> background image sourced from
+                  <a href="https://www.stevens.edu/news/how-stop-spy-network-math" target="blank_">Stevens Institute of Technology</a>.</small><a class="projref" href="https://github.com/Kiruse/Pia.jl" target="_blank">github repo</a>
+              </div>
             </div>
           </div>
         </div>
@@ -167,7 +236,7 @@
       <li>data miner</li>
       <li>data scientist</li>
       <li>smart contract dev</li>
-      <li>neural network architect</li>
+      <li>neuralnet architect</li>
     </ul>
   </body>
 </html>

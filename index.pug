@@ -21,7 +21,7 @@ html
           img.logo(src='/assets/img/logo.svg' alt='logo in jumbotron')
           h1 kirudev
           h2 freelance <span>coder</span>
-      #about
+      #about.fullspan
         h1 About
         .content
           p
@@ -41,43 +41,93 @@ html
           noscript
             | #[span Please note] that this website is built upon serverless architecture and is best enjoyed with
             | JavaScript enabled. I promise I'm not even using cookies. I'd be full cypherpunk if I could!
-      #projects
+      #projects.fullspan
         h1 Projects
         p.content
           | Most of my projects can be found on my <a href="https://github.com/Kiruse?tab=repositories">GitHub</a>.
           | Most are public and Open Source. Those which are not will be made public eventually, and one may request
           | early access from my own person.
-        .inner
-          .card
-            h2 Voxel Populi Engine #[sup: i WIP]
-            .content
-              p Open Source Game Engine written from scratch in Julia on OpenGL 3.3+, GLFW, and FreeType.
-              a(href='https://github.com/Kirusifix' target='_blank') visit
-          .card
-            h2 PyParFact #[sup: i WIP]
-            .content
-              p Untokenized, context-sensitive parser factory to accelerate designing &amp; developing of parsers in Python.
-              a(href='https://github.com/Kiruse/PyParFact' target='_blank') visit
-          .card
-            h2 Penumbra DEX #[sup: i WIP]
-            .content
-              p Ethereum VM-based DeFi protocol for an AMM merging single-asset liquidity pools into an abstract hyperpool.
-              p: i To be released soon
-          .card
-            h2 GenerateProperties.jl
-            .content
-              p QoL macro library for Julia to simplify virtual properties for ease of use &amp; code clarity.
-              a(href='https://github.com/Kiruse/GenerateProperties.jl' target='_blank') visit
-          .card
-            h2 Pia.jl #[sup: i(style='color:#B2FFFF') frozen]
-            .content
-              p Peer-to-peer networking component of #[i Voxel Populi Engine] with native support for cryptographic identities.
-              a(href='https://github.com/Kiruse/Pia.jl' target='_blank') visit
-          .card
-            h2 node-stateworks
-            .content
-              p Stateful objects library for JavaScript.
-              a(href='https://github.com/Kiruse/node-stateworks' target='_blank') visit
+        #project-kirudev.project: .gradient: .inner: .content
+          h2 kirudev
+          p
+            | #[i This Website] is static &amp; serverless. It uses various different technologies for development efficiency,
+            | ranging from #[a(href='https://babeljs.io' target='_blank') Babel] &amp; #[a(href='https://webpack.js.org' target='_blank') Webpack]
+            | over #[a(href='https://sass-lang.com' target='_blank') SCSS] and #[a(href='https://pugjs.org' target='_blank') Pug]
+            | to #[a(href='https://animejs.com' target='_blank') anime.js].
+          p
+            | For the most part, it is built from scratch without such frameworks as #[a(href='https://getbootstrap.com' target='_blank') bootstrap],
+            | #[a(href='https://tailwindcss.com' target='_blank') tailwind], or #[a(href='https://jquery.org' target='_blank') jQuery].
+          p
+            | While the static content is hosted on #[a(href='https://vercel.com' target='_blank') Vercel], the
+            | #[i serverless functions] are powered by #[a(href='https://firebase.google.com' target='_blank') Google Firebase].
+          a.projref(href='https://github.com/Kiruse/kiruse.dev' target='_blank') github repo
+        #project-penumbra.project: .gradient: .inner: .content
+          h2 Penumbra DEX #[sup: i WIP]
+          p
+            | #[i Penumbra] is a #[span DeFi] protocol, a collection of #[span Solidity] smart contracts resembling an
+            | #[span Automated Market Maker] running on the #[a(href='https://polygon.technology' target='_blank') Polygon Network].
+          p
+            | #[i Penumbra] merges single-asset liquidity pools into the abstract #[span Hyperpool]: rather than pairs
+            | of specific fungible tokens, every type of asset can be paired with another, effectively
+            | #[i maximizing liquidity depth] across all assets.
+          p
+            | Simultaneously, #[i liquidity providers] can stake a single token, reducing hassle and improving capital
+            | efficiency. #[i LPs] enjoy a portion of trading fees levied on any trade on the platform involving their
+            | staked assets.
+          p
+            | The effects of the #[i Hyperpool] on returns are yet to be observed.
+          a.projref(href='https://penumbra.network' target='_blank') dapp (soon)
+          a.projref(href='https://github.com/Kiruse/PenumbraDEX' target='_blank') github repo (soon public)
+        #project-parfact.project: .gradient: .inner: .content
+          h2 PyParFact #[sup: i WIP]
+          p
+            | #[i ParFact] is a #[span Python] library exposing an #[i API] to build #[i untokenized] and #[i contextual]
+            | formal language text parsers. #[i ParFact] parsers skip tokenization and build #[i Abstract Syntax Trees]
+            | directly.
+          p
+            | #[i ParFact] is still an early #[i Work in Progress]. The inspiration for the project sprouted from a
+            | client project which saw me mine non-uniform textual data from
+            | #[a(href='https://wiktionary.org' target='_blank') Wiktionary]. The #[i WikiCode] parser library I employed
+            | for the task was too generic and even a little buggy. I'd been meaning to develop such a parser generator
+            | before already, so I took this opportunity to start a side-side project.
+          p
+            | Once complete, #[i ParFact] will excel at creating more natural programming languages, or parsing
+            | non-uniform data sources with plentiful special cases, such as #[i WikiCode] found on #[i Wiktionary].
+          p
+            | #[i ParFact] achieves its functionality through #[i Deterministic Conversion] - the process of converting
+            | a #[i Non-Deterministic Finite Automaton] into a #[i determinstic] one. A custom grammar notation allows
+            | it to understand interdependencies between rules.
+          a.projref(href='https://github.com/Kiruse/PyParFact' target='_blank') github repo
+        #project-vpe.project: .gradient: .inner: .content
+          h2 Voxel Populi Engine #[sup: i WIP]
+          p
+            | A very early #[i Work in Progress], #[i Voxel Populi Engine] is an #[i Open Source] collection of Julia
+            | libraries composing my #[span custom game engine] developed from scratch, built atop #[span OpenGL 3.3+],
+            | #[span GLFW], and #[span TrueType].
+          p
+            | As it is currently a long-term hobby project, unfortunately, the engine is not advanced enough for any
+            | visual demonstration. I am also in the process of a massive refactoring, which means parts of the existing
+            | codebase are currently private.
+          p
+            | With this game engine, I wish to explore applications of #[span machine learning] in game development &amp;
+            | design. Specifically, I see massive potential for #[span procedural content generation],
+            | #[span adaptive difficulty], #[span XR], and #[span animation tuning] - though there are endlessly more
+            | possibilities.
+          a.projref(href='https://github.com/Kirusifix' target='_blank') github repos
+        #project-pia.project: .gradient: .inner: .content
+          h2 Pia.jl #[sup: i(style='color:#B2FFFF') frozen]
+          p
+            | #[i Pia] is the #[span peer-to-peer networking] component of #[span VPE] above. It is designed to allow
+            | developers to establish an "internet of peers" - whether it is for gaming, distributed computing, or
+            | decentralized networks. As a crypto enthusiast, it has built-in support for #[span crypto-identities]
+            | and #[span cryptocurrencies] - albeit fully optional.
+          p
+            | As #[i VPE] is far from its need for netcode still, #[i Pia] is currently merely a #[i proof of concept],
+            | albeit an incomplete one.
+          small
+            | #[span Disclaimer:] background image sourced from
+            | #[a(href='https://www.stevens.edu/news/how-stop-spy-network-math' target='blank_') Stevens Institute of Technology].
+          a.projref(href='https://github.com/Kiruse/Pia.jl' target='_blank') github repo
       #clients.fullspan
         h1 Clients
         .inner
@@ -133,4 +183,4 @@ html
       li data miner
       li data scientist
       li smart contract dev
-      li neural network architect
+      li neuralnet architect
