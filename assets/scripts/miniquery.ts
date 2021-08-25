@@ -12,8 +12,20 @@ export default function $(query: string, rel: Relative[]) : DocQuery;
 export default function $(elements: HTMLElement[]) : DocQuery;
 export default function $(...args) { return new (DocQuery as DocQueryConstructor)(...args) }
 
+let docready = false;
+
 $.create = function(tag: string) {
     return new DocQuery(document.createElement(tag));
+}
+
+document.addEventListener('DOMContentLoaded', () => docready = true);
+$.onready = function(cb: () => void) {
+    if (docready) {
+        cb();
+    }
+    else {
+        document.addEventListener('DOMContentLoaded', cb);
+    }
 }
 
 export class ArgumentError extends Error {}

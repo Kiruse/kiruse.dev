@@ -10,7 +10,7 @@ import $ from '@/miniquery'
 
 const d = document;
 
-window.onload = () => {
+$.onready(() => {
     const page = $(d.body).attr('data-page')[0].toLowerCase();
     pageloads[page]?.();
     
@@ -20,7 +20,7 @@ window.onload = () => {
     $('#navbar a').on('touchstart mousedown', function(e) {
         $(e.target).addClass('down');
     });
-}
+});
 
 const pageloads = {
     home() {
