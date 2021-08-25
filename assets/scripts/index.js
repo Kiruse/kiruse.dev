@@ -33,6 +33,7 @@ function buildContactForm() {
     $form.style('display', 'block');
     $form.on('submit', evt => {
         evt.preventDefault();
+        alert('sorry, under construction! :c');
         // TODO: submit form to serverless function using `fetch`
     })
 }

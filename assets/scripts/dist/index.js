@@ -36,7 +36,8 @@ function buildContactForm() {
   const $form = (0, _miniquery.default)('#contact-email form');
   $form.style('display', 'block');
   $form.on('submit', evt => {
-    evt.preventDefault(); // TODO: submit form to serverless function using `fetch`
+    evt.preventDefault();
+    alert('sorry, under construction! :c'); // TODO: submit form to serverless function using `fetch`
   });
 }
 
