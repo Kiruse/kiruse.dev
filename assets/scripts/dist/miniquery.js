@@ -16,8 +16,20 @@ function $(...args) {
   return new DocQuery(...args);
 }
 
+let docready = false;
+
 $.create = function (tag) {
   return new DocQuery(document.createElement(tag));
+};
+
+document.addEventListener('DOMContentLoaded', () => docready = true);
+
+$.onready = function (cb) {
+  if (docready) {
+    cb();
+  } else {
+    document.addEventListener('DOMContentLoaded', cb);
+  }
 };
 
 class ArgumentError extends Error {}
