@@ -20,6 +20,7 @@ _miniquery.default.onready(() => {
   buildQRCodes();
   animateJobs();
   animateAbout();
+  animateProjects();
 });
 
 function buildNavbar() {
@@ -85,4 +86,32 @@ function animateAbout() {
 
   (0, _miniquery.default)(d.body).on('touchstart touchmove', evt => parallaxScroll(evt.touches[0].screenX / 10, evt.touches[0].screenY / 10));
   (0, _miniquery.default)(d.body).on('mousemove', evt => parallaxScroll(evt.pageX / 10, evt.pageY / 10));
+}
+
+function animateProjects() {
+  (0, _miniquery.default)('.project').forEach(el => {
+    const animBG = (0, _anime.default)({
+      targets: (0, _miniquery.default)(el).query('.content')[0],
+      translateY: [50, 0],
+      easing: 'linear'
+    });
+    const animCnt = (0, _anime.default)({
+      targets: el,
+      opacity: [0, 1],
+      easing: 'linear'
+    });
+
+    function handleScroll() {
+      const start = el.offsetTop - window.innerHeight * 2 / 3;
+      const stop = el.offsetTop - window.innerHeight / 3;
+      const progress = Math.max(0, Math.min(window.scrollY - start, stop)) / (stop - start);
+      animCnt.seek(animCnt.duration * progress);
+      animBG.seek(animBG.duration * progress);
+    }
+
+    (0, _miniquery.default)(document).on('scroll', handleScroll);
+    handleScroll();
+    animCnt.pause();
+    animBG.pause();
+  });
 }
