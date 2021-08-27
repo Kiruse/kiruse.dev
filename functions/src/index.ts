@@ -74,7 +74,7 @@ export const sendmail = functions.region('europe-west1').https.onRequest(async (
         }
         else {
             functions.logger.info('sendmail success', info);
-            res.status(200).end();
+            res.status(200).end('{}');
         }
     });
 });
