@@ -253,6 +253,10 @@ class DocQuery {
 
 
   attachTo(parent) {
+    if (parent instanceof DocQuery) {
+      parent = parent[0];
+    }
+
     this.elements.forEach(e => parent.appendChild(e));
     return this;
   }

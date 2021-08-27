@@ -7,11 +7,13 @@
 import anime from 'animejs/lib/anime.es'
 import QRCode from 'qrcode'
 import $ from '@/miniquery'
+import errors from '@serverless/errors.json'
 
 const d = document;
 
 $.onready(() => {
     buildNavbar();
+    buildButtons();
     buildContactForm();
     buildQRCodes();
     animateJobs();
@@ -28,14 +30,50 @@ function buildNavbar() {
     });
 }
 
+function buildButtons() {
+    $('button').on('mousedown touchstart', evt => $(evt.target).addClass('down'));
+    $(d.body).on('mouseup touchend', () => $('button').removeClass('down'));
+}
+
 function buildContactForm() {
     const $form = $('#contact-email form');
     $form.style('display', 'block');
-    $form.on('submit', evt => {
+    $form.on('submit', async evt => {
         evt.preventDefault();
-        alert('sorry, under construction! :c');
-        // TODO: submit form to serverless function using `fetch`
-    })
+        const spinner = new Spinner($form[0]).attach();
+        let alertparams = {title: 'Mail not sent', type: 'error', message: 'Failed to send mail, apologies. Perhaps attempt via a different channel?'};
+        
+        try {
+            const res = await fetch('https://europe-west1-kirusite-c3392.cloudfunctions.net/sendmail', {
+                method: 'post',
+                body: new URLSearchParams(new FormData($form[0])),
+            });
+            
+            if (res.status === 200) {
+                const json = await res.json();
+                if (json.error === errors.mail['malformed address']) {
+                    alertparams.message = 'Malformed email address. Please verify you\'ve entered the correct address.';
+                }
+                else {
+                    alertparams = {
+                        title: 'Mail sent',
+                        type: 'success',
+                        message: 'Your message was sent! Typically, I respond within a day.'
+                    };
+                }
+            }
+            else {
+                console.error('status code', res.status);
+            }
+        }
+        catch (ex) {
+            console.error(ex);
+        }
+        finally {
+            createAlert(alertparams);
+            spinner.detach();
+        }
+    });
 }
 
 function buildQRCodes() {
@@ -115,4 +153,70 @@ function animateProjects() {
         animCnt.pause();
         animBG.pause();
     });
+}
+
+function createAlert({title, type, message}) {
+    let $alerts = $('#alerts');
+    if (!$alerts.length) {
+        $alerts = $.create('div').attr('id', 'alerts').attachTo(d.body);
+    }
+    
+    const $alert = $.create('div').addClass('alert', type || 'info');
+    
+    const $title = $.create('div')
+        .addClass('title')
+        .text(title || 'Alert')
+        .attachTo($alert);
+    $.create('a')
+        .addClass('close')
+        .attr('href', '#')
+        .text('×')
+        .on('click', (evt) => {
+            evt.preventDefault();
+            $alert.detach();
+        })
+        .attachTo($title);
+    
+    $.create('div')
+        .addClass('body')
+        .text(message || '')
+        .attachTo($alert);
+    $alert.attachTo($alerts);
+    return $alert;
+}
+
+class Spinner {
+    constructor(parent) {
+        if (!parent) throw new Error('no parent element');
+        this.$parent = $(parent);
+        this.$elem   = $.create('div').addClass('overlay', 'spinner');
+        
+        if (this.$parent.style('position')[0] === 'static') {
+            this.$parent.style('position', 'relative');
+        }
+        
+        for (let i = 0; i < 5; ++i) {
+            $.create('div').addClass('spinner-dot').attachTo(this.$elem);
+        }
+        
+        this.anim = anime({
+            targets: this.$elem.query('.spinner-dot').elements,
+            translateY: [0, -25, 0],
+            loop: true,
+            delay: anime.stagger(100),
+            endDelay: 300,
+            duration: 500,
+            easing: 'easeInOutQuad',
+        })
+    }
+    
+    attach() {
+        this.$elem.attachTo(this.$parent);
+        return this;
+    }
+    
+    detach() {
+        this.$elem.detach();
+        return this;
+    }
 }

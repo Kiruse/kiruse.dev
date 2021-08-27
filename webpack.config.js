@@ -13,6 +13,7 @@ module.exports = {
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './assets/scripts/dist'),
+            '@serverless': path.resolve(__dirname, './functions/lib'),
         },
     },
     devtool: 'source-map',

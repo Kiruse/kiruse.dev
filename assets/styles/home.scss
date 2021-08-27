@@ -406,6 +406,105 @@ body[data-page=home] #jumbotron {
 }
 
 
+@mixin alert-theme($background, $darker: darken($background, 20%)) {
+  background-color: $background;
+  border-color: $darker;
+  
+  > .title {
+    border-color: $darker;
+    color: $darker;
+    
+    a.close {
+      color: $darker;
+      &:hover {
+        color: darken($darker, 10%);
+      }
+    }
+  }
+  
+  > .body {
+    color: $darker;
+  }
+}
+
+#alerts {
+  position: fixed;
+  top: $navbar-height + 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1rem;
+  z-index: 1000;
+  
+  > .alert {
+    display: block;
+    border: 2px solid;
+    border-radius: 4pt;
+    margin-bottom: 10pt;
+    
+    @include media-medium() {
+      min-width: 250px;
+      max-width: 400px;
+    }
+    @include media-phone() {
+      width: 90vw;
+    }
+    
+    > .title {
+      border-bottom: 1px solid;
+      padding: 2pt;
+      a.close {
+        float: right;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0 4pt;
+      }
+    }
+    > .body {
+      padding: 4pt 2pt;
+    }
+    
+    &.success {
+      @include alert-theme(#b5ecb5, #24cc24);
+    }
+    &.info {
+      @include alert-theme(#9ecbff, #1e6cc5);
+    }
+    &.warn {
+      @include alert-theme(#fbe2c7, #a56d32);
+    }
+    &.error {
+      @include alert-theme(#e7b9c2, #a93f54);
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.spinner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  
+  .spinner-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #0ff;
+    border-radius: 2pt;
+  }
+}
+
+
 h1, h2, h3, h4, h5, h6 {
   font-family: Atkinson Hyperlegible, sans-serif;
   margin: 0;
@@ -445,8 +544,13 @@ button {
   font: inherit;
   font-style: italic;
   border-radius: 2px;
-  border: none;
+  border: 1px solid $color-base-vibrant;
   color: white;
+  
+  &.down {
+    background-color: darken($color-base-vibrant, 10%);
+    border-style: inset;
+  }
 }
 
 #freelance-jobs {

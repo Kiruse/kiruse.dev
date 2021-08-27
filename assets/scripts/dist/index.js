@@ -10,12 +10,15 @@ var _qrcode = _interopRequireDefault(require("qrcode"));
 
 var _miniquery = _interopRequireDefault(require("@/miniquery"));
 
+var _errors = _interopRequireDefault(require("@serverless/errors.json"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const d = document;
 
 _miniquery.default.onready(() => {
   buildNavbar();
+  buildButtons();
   buildContactForm();
   buildQRCodes();
   animateJobs();
@@ -32,12 +35,50 @@ function buildNavbar() {
   });
 }
 
+function buildButtons() {
+  (0, _miniquery.default)('button').on('mousedown touchstart', evt => (0, _miniquery.default)(evt.target).addClass('down'));
+  (0, _miniquery.default)(d.body).on('mouseup touchend', () => (0, _miniquery.default)('button').removeClass('down'));
+}
+
 function buildContactForm() {
   const $form = (0, _miniquery.default)('#contact-email form');
   $form.style('display', 'block');
-  $form.on('submit', evt => {
+  $form.on('submit', async evt => {
     evt.preventDefault();
-    alert('sorry, under construction! :c'); // TODO: submit form to serverless function using `fetch`
+    const spinner = new Spinner($form[0]).attach();
+    let alertparams = {
+      title: 'Mail not sent',
+      type: 'error',
+      message: 'Failed to send mail, apologies. Perhaps attempt via a different channel?'
+    };
+
+    try {
+      const res = await fetch('https://europe-west1-kirusite-c3392.cloudfunctions.net/sendmail', {
+        method: 'post',
+        body: new URLSearchParams(new FormData($form[0]))
+      });
+
+      if (res.status === 200) {
+        const json = await res.json();
+
+        if (json.error === _errors.default.mail['malformed address']) {
+          alertparams.message = 'Malformed email address. Please verify you\'ve entered the correct address.';
+        } else {
+          alertparams = {
+            title: 'Mail sent',
+            type: 'success',
+            message: 'Your message was sent! Typically, I respond within a day.'
+          };
+        }
+      } else {
+        console.error('status code', res.status);
+      }
+    } catch (ex) {
+      console.error(ex);
+    } finally {
+      createAlert(alertparams);
+      spinner.detach();
+    }
   });
 }
 
@@ -115,4 +156,67 @@ function animateProjects() {
     animCnt.pause();
     animBG.pause();
   });
+}
+
+function createAlert({
+  title,
+  type,
+  message
+}) {
+  let $alerts = (0, _miniquery.default)('#alerts');
+
+  if (!$alerts.length) {
+    $alerts = _miniquery.default.create('div').attr('id', 'alerts').attachTo(d.body);
+  }
+
+  const $alert = _miniquery.default.create('div').addClass('alert', type || 'info');
+
+  const $title = _miniquery.default.create('div').addClass('title').text(title || 'Alert').attachTo($alert);
+
+  _miniquery.default.create('a').addClass('close').attr('href', '#').text('×').on('click', evt => {
+    evt.preventDefault();
+    $alert.detach();
+  }).attachTo($title);
+
+  _miniquery.default.create('div').addClass('body').text(message || '').attachTo($alert);
+
+  $alert.attachTo($alerts);
+  return $alert;
+}
+
+class Spinner {
+  constructor(parent) {
+    if (!parent) throw new Error('no parent element');
+    this.$parent = (0, _miniquery.default)(parent);
+    this.$elem = _miniquery.default.create('div').addClass('overlay', 'spinner');
+
+    if (this.$parent.style('position')[0] === 'static') {
+      this.$parent.style('position', 'relative');
+    }
+
+    for (let i = 0; i < 5; ++i) {
+      _miniquery.default.create('div').addClass('spinner-dot').attachTo(this.$elem);
+    }
+
+    this.anim = (0, _anime.default)({
+      targets: this.$elem.query('.spinner-dot').elements,
+      translateY: [0, -25, 0],
+      loop: true,
+      delay: _anime.default.stagger(100),
+      endDelay: 300,
+      duration: 500,
+      easing: 'easeInOutQuad'
+    });
+  }
+
+  attach() {
+    this.$elem.attachTo(this.$parent);
+    return this;
+  }
+
+  detach() {
+    this.$elem.detach();
+    return this;
+  }
+
 }
