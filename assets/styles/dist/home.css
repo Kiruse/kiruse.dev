@@ -23,17 +23,16 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   min-width: 240px;
 }
 @media screen and (max-width: 999px) {
   #omega {
-    width: 100vw;
     min-height: 100vh;
   }
 }
 @media screen and (min-width: 1000px) {
   #omega {
-    width: 100%;
     margin-top: 60px;
   }
 }
@@ -410,10 +409,11 @@ body[data-page=home] #jumbotron h2 span {
 #omega > .fullspan {
   align-self: stretch;
   width: auto;
-  padding: 10pt;
+  padding: 10pt 0;
 }
 
 #omega > * > .content {
+  box-sizing: border-box;
   padding: 10px;
 }
 @media screen and (min-width: 1000px) {
