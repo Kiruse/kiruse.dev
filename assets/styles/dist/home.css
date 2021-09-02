@@ -231,7 +231,7 @@ body[data-page=home] #jumbotron h2 span {
   padding: 60pt 0 0 0;
   margin: 0;
 }
-#omega > #projects > .content {
+#omega > #projects > .content:last-of-type {
   padding-bottom: 40pt;
 }
 #omega > #projects > .project {
@@ -283,11 +283,13 @@ body[data-page=home] #jumbotron h2 span {
     text-align: center;
   }
 }
-#omega > #projects > .project > .gradient > .inner > .content a.projref {
-  display: block;
-  padding: 4pt 30pt;
+#omega > #projects > .project > .gradient > .inner > .content a.megabutton.projref {
+  display: inline-block;
+  margin: 4pt 10pt 4pt 0;
+  border-radius: 7pt;
+  padding: 10pt;
 }
-#omega > #projects > .project > .gradient > .inner > .content a.projref::before {
+#omega > #projects > .project > .gradient > .inner > .content a.megabutton.projref::before {
   content: "→ ";
 }
 #omega > #projects > .project .gradient {
@@ -616,6 +618,24 @@ a, a:link, a:visited, a:active {
 
 a:hover {
   color: #d58970;
+}
+
+.megabutton {
+  display: block;
+  padding: 15pt 20pt;
+  margin: 10pt auto;
+  border: 1px solid #C96949;
+  border-radius: 10pt;
+  color: #C96949;
+}
+.megabutton:hover {
+  border-color: #d58970;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+a.megabutton {
+  text-decoration: none;
+  font-style: normal;
 }
 
 input, textarea {
